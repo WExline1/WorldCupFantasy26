@@ -71,6 +71,9 @@
   .team-name{flex:1;font-size:12.5px;color:var(--text)}
   .team-pts{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--green);min-width:24px;text-align:right}
   .team-pts.zero{color:var(--muted)}
+  .team-row.eliminated .team-name{text-decoration:line-through;color:var(--muted)}
+  .team-row.eliminated .team-flag{opacity:0.4}
+  .team-row.eliminated .team-pts{color:var(--muted)}
 
   /* SIDEBAR */
   .sidebar{position:sticky;top:var(--ticker-h);max-height:calc(100vh - var(--ticker-h));overflow-y:auto;padding:20px 18px 40px;scrollbar-width:none}
@@ -285,7 +288,37 @@ const SEED_MATCHES = [
   ['England',       0, 0, 'Ghana',                'L'],
   ['Panama',        0, 1, 'Croatia',              'L'],
   ['Colombia',      1, 0, 'DR Congo',             'K'],
+  // Jun 24 – Groups A, B & C (final matchday)
+  ['Switzerland',   2, 1, 'Canada',               'B'],
+  ['Bosnia & Herzegovina', 3, 1, 'Qatar',         'B'],
+  ['Brazil',        3, 0, 'Scotland',             'C'],
+  ['Morocco',       4, 2, 'Haiti',                'C'],
+  ['Mexico',        3, 0, 'Czechia',              'A'],
+  ['South Africa',  1, 0, 'South Korea',          'A'],
 ];
+
+// ═══════════════════════════════════════════════════════
+// ELIMINATED TEAMS
+// Updated as groups complete. A team is eliminated when
+// they can no longer qualify for the Round of 32.
+// Groups A, B, C complete as of Jun 24.
+// ═══════════════════════════════════════════════════════
+const ELIMINATED = new Set([
+  // Group A (complete): Mexico 1st, South Korea 2nd → Czechia & South Africa out
+  'Czechia', 'South Africa',
+  // Group B (complete): Switzerland 1st, Canada 2nd* → Qatar out, Bosnia & Herzegovina TBD (3rd place)
+  'Qatar',
+  // Group C (complete): Brazil 1st, Morocco 2nd → Scotland & Haiti out
+  'Scotland', 'Haiti',
+  // Groups D-L still in progress — will update as they complete
+  // Confirmed out from results so far:
+  'Paraguay',   // Group D: 1W 1L, but lost to Paraguay winner slot — TBD
+  'Jordan',     // Group J: 0pts after 2 games, eliminated
+  'Uzbekistan', // Group K: 0pts after 2 games, eliminated
+  'Panama',     // Group L: 0pts after 2 games, eliminated
+  'Iraq',       // Group I: 0pts after 2 games, eliminated
+  'Curaçao',    // Group E: 0pts after 2 games, eliminated
+]);
 
 function buildSeedResults() {
   const results = {};
@@ -411,7 +444,8 @@ function renderAll(results, matches) {
       if(seen.has(key))return;
       seen.add(key);
       const pts=breakdown[team]||0;
-      teamsHTML+=`<div class="team-row">
+      const isElim = ELIMINATED.has(team);
+      teamsHTML+=`<div class="team-row${isElim?' eliminated':''}">
         <span class="team-flag">${flag(team)}</span>
         <span class="team-name">${team}</span>
         <span class="team-pts${pts===0?' zero':''}">${pts>0?'+'+pts:'—'}</span>
