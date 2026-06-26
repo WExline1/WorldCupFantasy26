@@ -295,6 +295,12 @@ const SEED_MATCHES = [
   ['Morocco',       4, 2, 'Haiti',                'C'],
   ['Mexico',        3, 0, 'Czechia',              'A'],
   ['South Africa',  1, 0, 'South Korea',          'A'],
+  // Jun 25 – Groups D, E & F (final matchday)
+  ['Ecuador',       2, 1, 'Germany',              'E'],
+  ['Ivory Coast',   2, 0, 'Curaçao',              'E'],
+  ['Netherlands',   3, 1, 'Tunisia',              'F'],
+  ['Japan',         1, 1, 'Sweden',               'F'],
+  // D still in progress: USA vs Türkiye, Paraguay vs Australia
 ];
 
 // ═══════════════════════════════════════════════════════
@@ -304,20 +310,21 @@ const SEED_MATCHES = [
 // Groups A, B, C complete as of Jun 24.
 // ═══════════════════════════════════════════════════════
 const ELIMINATED = new Set([
-  // Group A (complete): Mexico 1st, South Korea 2nd → Czechia out, South Africa TBD (3rd place)
+  // Group A (complete): Mexico 1st, South Korea 2nd → Czechia out, South Africa TBD (3rd)
   'Czechia',
-  // Group B (complete): Switzerland 1st, Canada 2nd* → Qatar out, Bosnia & Herzegovina TBD (3rd place)
+  // Group B (complete): Switzerland 1st, Bosnia & Herzegovina 2nd → Qatar out, Canada TBD (3rd)
   'Qatar',
-  // Group C (complete): Brazil 1st, Morocco 2nd → Haiti out, Scotland TBD (3rd place)
+  // Group C (complete): Brazil 1st, Morocco 2nd → Haiti out, Scotland TBD (3rd)
   'Haiti',
-  // Groups D-L still in progress — will update as they complete
-  // Confirmed out from results so far:
-  // Group D still in progress — no confirmed eliminations yet
-  'Jordan',     // Group J: 0pts after 2 games, eliminated
-  'Uzbekistan', // Group K: 0pts after 2 games, eliminated
-  'Panama',     // Group L: 0pts after 2 games, eliminated
-  'Iraq',       // Group I: 0pts after 2 games, eliminated
-  'Curaçao',    // Group E: 0pts after 2 games, eliminated
+  // Group E (complete): Ivory Coast 1st, Ecuador 2nd → Germany out, Curaçao out
+  'Germany', 'Curaçao',
+  // Group F (complete): Netherlands 1st, Japan 2nd → Tunisia out, Sweden TBD (3rd)
+  'Tunisia',
+  // Confirmed out from earlier results:
+  'Jordan',     // Group J: 0pts
+  'Uzbekistan', // Group K: 0pts
+  'Panama',     // Group L: 0pts
+  'Iraq',       // Group I: 0pts
 ]);
 
 function buildSeedResults() {
