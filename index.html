@@ -303,6 +303,13 @@ const SEED_MATCHES = [
   ['Japan',         1, 1, 'Sweden',               'F'],
   ['Türkiye',       3, 2, 'United States',        'D'],
   ['Paraguay',      0, 0, 'Australia',            'D'],
+  // Jun 26 – Groups G, H & I (final matchday)
+  ['Belgium',       5, 1, 'New Zealand',          'G'],
+  ['Egypt',         1, 1, 'Iran',                 'G'],
+  ['Spain',         1, 0, 'Uruguay',              'H'],
+  ['Cape Verde',    0, 0, 'Saudi Arabia',         'H'],
+  ['France',        4, 1, 'Norway',               'I'],
+  ['Senegal',       5, 0, 'Iraq',                 'I'],
 ];
 
 // ═══════════════════════════════════════════════════════
@@ -324,11 +331,18 @@ const ELIMINATED = new Set([
   'Curaçao',
   // Group F (complete): Netherlands 1st, Japan 2nd → Tunisia out, Sweden TBD (3rd)
   'Tunisia',
-  // Confirmed out from earlier results:
-  'Jordan',     // Group J: 0pts
-  'Uzbekistan', // Group K: 0pts
-  'Panama',     // Group L: 0pts
-  'Iraq',       // Group I: 0pts
+  // Group G (complete): Belgium 1st, Egypt 2nd → New Zealand out, Iran TBD (3rd)
+  'New Zealand',
+  // Group H (complete): Spain 1st, Cape Verde 2nd → Uruguay out, Saudi Arabia out
+  'Uruguay', 'Saudi Arabia',
+  // Group I (complete): France 1st, Norway 2nd → Iraq out, Senegal TBD (3rd)
+  'Iraq',
+  // Jordan confirmed out (0pts, Group J)
+  'Jordan',
+  // Uzbekistan confirmed out (0pts, Group K)
+  'Uzbekistan',
+  // Panama confirmed out (0pts, Group L)
+  'Panama',
 ]);
 
 function buildSeedResults() {
