@@ -310,6 +310,13 @@ const SEED_MATCHES = [
   ['Cape Verde',    0, 0, 'Saudi Arabia',         'H'],
   ['France',        4, 1, 'Norway',               'I'],
   ['Senegal',       5, 0, 'Iraq',                 'I'],
+  // Jun 27 – Groups J, K & L (final matchday — group stage complete)
+  ['Argentina',     3, 1, 'Jordan',               'J'],
+  ['Algeria',       3, 3, 'Austria',              'J'],
+  ['Colombia',      0, 0, 'Portugal',             'K'],
+  ['DR Congo',      3, 1, 'Uzbekistan',           'K'],
+  ['England',       2, 0, 'Panama',               'L'],
+  ['Croatia',       2, 1, 'Ghana',                'L'],
 ];
 
 // ═══════════════════════════════════════════════════════
@@ -331,18 +338,18 @@ const ELIMINATED = new Set([
   'Curaçao',
   // Group F (complete): Netherlands 1st, Japan 2nd → Tunisia out, Sweden TBD (3rd)
   'Tunisia',
-  // Group G (complete): Belgium 1st, Egypt 2nd → New Zealand out, Iran TBD (3rd)
-  'New Zealand',
+  // Group G (complete): Belgium 1st, Egypt 2nd → New Zealand out, Iran out (3-3 draw sealed their fate)
+  'New Zealand', 'Iran',
   // Group H (complete): Spain 1st, Cape Verde 2nd → Uruguay out, Saudi Arabia out
   'Uruguay', 'Saudi Arabia',
   // Group I (complete): France 1st, Norway 2nd → Iraq out, Senegal TBD (3rd)
   'Iraq',
-  // Jordan confirmed out (0pts, Group J)
+  // Group J (complete): Argentina 1st, Algeria 2nd → Jordan out, Austria TBD (3rd)
   'Jordan',
-  // Uzbekistan confirmed out (0pts, Group K)
+  // Group K (complete): Colombia 1st, Portugal 2nd → Uzbekistan out, DR Congo TBD (3rd)
   'Uzbekistan',
-  // Panama confirmed out (0pts, Group L)
-  'Panama',
+  // Group L (complete): England 1st, Croatia 2nd → Panama out, Ghana out
+  'Panama', 'Ghana',
 ]);
 
 function buildSeedResults() {
