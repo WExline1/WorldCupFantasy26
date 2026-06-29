@@ -367,11 +367,21 @@ function buildSeedResults() {
   SEED_MATCHES.forEach(([home, hs, as_, away, stage]) => {
     if (hs === null || as_ === null) return;
     const h = ensure(home), a = ensure(away);
-    const knockout = stage === 'R32' || stage === 'R16' || stage === 'QF' || stage === 'SF' || stage === 'F';
+    const knockout = stage === 'R32' || stage === 'R16' || stage === 'QF' || stage === 'SF' || stage === 'FINAL';
     if (knockout) {
-      // In knockouts only winner advances — no draws
-      if (hs > as_)  { h.r32 += (stage==='R32'?1:0); h.r16 += (stage==='R16'?1:0); h.qf += (stage==='QF'?1:0); h.sf += (stage==='SF'?1:0); h.final += (stage==='F'?1:0); }
-      else           { a.r32 += (stage==='R32'?1:0); a.r16 += (stage==='R16'?1:0); a.qf += (stage==='QF'?1:0); a.sf += (stage==='SF'?1:0); a.final += (stage==='F'?1:0); }
+      if (hs > as_)  {
+        h.r32   += (stage==='R32'  ?1:0);
+        h.r16   += (stage==='R16'  ?1:0);
+        h.qf    += (stage==='QF'   ?1:0);
+        h.sf    += (stage==='SF'   ?1:0);
+        h.final += (stage==='FINAL'?1:0);
+      } else {
+        a.r32   += (stage==='R32'  ?1:0);
+        a.r16   += (stage==='R16'  ?1:0);
+        a.qf    += (stage==='QF'   ?1:0);
+        a.sf    += (stage==='SF'   ?1:0);
+        a.final += (stage==='FINAL'?1:0);
+      }
     } else {
       if      (hs > as_)  { h.group_wins++;  a.group_losses++; }
       else if (hs === as_){ h.group_draws++; a.group_draws++;  }
